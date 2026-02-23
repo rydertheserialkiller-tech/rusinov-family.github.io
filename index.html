@@ -5,16 +5,58 @@
   <meta charset="UTF-8">
   <style>
     body {
-      background: #0f172a;
+      margin: 0;
+      background: linear-gradient(180deg, #0f172a, #020617);
       color: white;
+      font-family: Arial, sans-serif;
       text-align: center;
-      font-family: Arial;
-      margin-top: 100px;
+    }
+
+    .container {
+      margin-top: 120px;
+    }
+
+    h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+      margin: auto;
+      backdrop-filter: blur(10px);
+    }
+
+    .member {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .member:last-child {
+      border-bottom: none;
     }
   </style>
 </head>
+
 <body>
-  <h1>Welcome to Rave Family</h1>
-  <p>موقعي اشتغل بنجاح 🚀</p>
+  <div class="container">
+    <h1>Rave Family</h1>
+    <div class="subtitle">Welcome to our official page</div>
+
+    <div class="card">
+      <div class="member">Owner: Ryder</div>
+      <div class="member">Server: Rave</div>
+      <div class="member">Status: Online</div>
+    </div>
+  </div>
 </body>
 </html>
