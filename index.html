@@ -3,111 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al'Arabawy Family | Wnash Time Roleplay</title>
+    <title>AL'ARABAWI FAMILY | Wnash Time</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --neon-blue: #00d4ff;
-            --dark-bg: #050a14;
+            --neon-blue: #00e5ff; /* أزرق نيون ساطع */
+            --dark-blue: #020b1a; /* كحلي غامق جداً للخلفية */
         }
 
         body {
-            background-color: var(--dark-bg);
+            background-color: var(--dark-blue);
             color: #ffffff;
-            /* تطبيق الخط المائل والعريض على كل الموقع */
             font-family: 'Exo 2', sans-serif;
             font-style: italic;
             font-weight: 900;
             margin: 0;
+            padding: 0;
             text-align: center;
-            text-transform: uppercase; /* لجعل الحروف كبيرة مثل الصورة */
+            text-transform: uppercase;
+            overflow-x: hidden;
         }
 
-        /* Hero Section */
+        /* الجزء العلوي مع خلفية المدينة المضببة */
         .hero {
+            position: relative;
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
-                        url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070'); 
+            /* استبدال برابط صورة مدينة حقيقية مع إضافة تأثير Blur */
+            background: linear-gradient(rgba(2, 11, 26, 0.7), rgba(2, 11, 26, 0.7)), 
+                        url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000'); 
             background-size: cover;
-            border-bottom: 3px solid var(--neon-blue);
+            background-position: center;
+            filter: grayscale(20%); /* تقليل الألوان قليلاً لتركيز النيون */
+            border-bottom: 4px solid var(--neon-blue);
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.3);
         }
 
+        /* العنوان الرئيسي بدون كلمة THE */
         h1 {
-            font-size: 5.5rem;
+            font-size: 6rem;
             margin: 0;
-            text-shadow: 4px 4px 0px var(--neon-blue); /* ظل حاد مثل الألعاب */
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 30px var(--neon-blue);
+            letter-spacing: 5px;
         }
 
-        /* بطاقات الميزات (الموجودة في الصورة) */
+        .tagline {
+            color: var(--neon-blue);
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        /* حاوية المربعات */
         .features-container {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            padding: 50px;
+            gap: 30px;
+            padding: 100px 50px;
             flex-wrap: wrap;
+            background: linear-gradient(to bottom, #020b1a, #000);
         }
 
         .feature-card {
-            background: #0a0f1a;
-            border: 1px solid #1a202c;
-            border-radius: 20px;
-            padding: 40px 20px;
-            width: 280px;
-            transition: 0.3s;
+            background: rgba(0, 229, 255, 0.03);
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 15px;
+            padding: 50px 30px;
+            width: 300px;
+            transition: 0.4s;
+            backdrop-filter: blur(10px); /* تأثير زجاجي مضبب للمربعات */
         }
 
         .feature-card:hover {
             border-color: var(--neon-blue);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
-        }
-
-        .feature-card i {
-            font-size: 40px;
-            color: var(--neon-blue);
-            margin-bottom: 20px;
-            display: block;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+            transform: translateY(-10px);
         }
 
         .feature-title {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: #fff;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--neon-blue);
         }
 
         .feature-desc {
-            font-size: 0.9rem;
-            color: #888;
-            font-style: normal; /* جعل الوصف غير مائل لسهولة القراءة لو أردت */
+            font-size: 0.95rem;
+            color: #a0aec0;
+            font-style: normal; /* جعل الوصف مريح للعين */
             font-weight: 400;
-            line-height: 1.6;
+            line-height: 1.5;
+            text-transform: none; /* الحروف صغيرة في الوصف فقط */
         }
 
+        /* الزر الاحترافي */
         .btn {
-            margin-top: 30px;
+            margin-top: 50px;
             display: inline-block;
-            padding: 15px 40px;
+            padding: 20px 60px;
             background: var(--neon-blue);
             color: #000;
             text-decoration: none;
+            font-size: 1.2rem;
             font-weight: 900;
-            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* زر مائل احترافي */
+            clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 50px var(--neon-blue);
+            transform: scale(1.05);
+        }
+
+        footer {
+            padding: 60px;
+            color: #4a5568;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
-        <p style="color: var(--neon-blue); letter-spacing: 5px;">Wnash Time Server</p>
-        <h1>THE AL'ARABAWI</h1>
-        <p>Discover the strongest family in the server</p>
+        <div class="tagline">Wnash Time Server</div>
+        <h1>AL'ARABAWI</h1>
+        <p style="font-style: normal; font-weight: 400; color: #ccc;">Dominating the streets with loyalty and power</p>
     </section>
 
     <div class="features-container">
         <div class="feature-card">
-            <div class="feature-title">THE ARABAWI LEGACY</div>
+            <div class="feature-title">ARABAWI LEGACY</div>
+            <div class="feature-desc">Born from the streets of Wnash Time, we built an empire on blood and loyalty.</div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-title">STRATEGIC SYNDICATE</div>
+            <div class="feature-desc">We don't just fight; we plan. Every move is calculated for maximum dominance.</div>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-title">UNBREAKABLE BOND</div>
+            <div class="feature-desc">In the Al'Arabawy family, your brother is your shield. We stand together or not at all.</div>
+        </div>
+    </div>
+
+    <section style="padding-bottom: 100px;">
+        <a href="YOUR_DISCORD_LINK" class="btn">Apply To Join</a>
+    </section>
+
+    <footer>
+        AL'ARABAWI FAMILY © 2026 | THE LEGACY CONTINUES
+    </footer>
+
+</body>
+</html>
