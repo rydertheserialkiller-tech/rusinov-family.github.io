@@ -1,263 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brock</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
-body{
-background:#050510;
-color:white;
-overflow:hidden;
-position:relative;
-}
-
-/* خلفية مدينة */
-body::before{
-content:"";
-position:absolute;
-width:100%;
-height:100%;
-background:url("https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1920&q=80");
-background-size:cover;
-background-position:center;
-opacity:.08;
-z-index:-2;
-}
-
-/* Glow أخضر غامق */
-body::after{
-content:"";
-position:absolute;
-width:600px;
-height:600px;
-background:radial-gradient(circle, rgba(0,255,120,0.25) 0%, transparent 70%);
-top:40%;
-left:50%;
-transform:translate(-50%,-50%);
-z-index:-1;
-filter:blur(120px);
-}
-
-/* NAVBAR */
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 60px;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(10px);
-}
-
-.logo{
-font-weight:800;
-letter-spacing:2px;
-}
-
-.nav-links{
-display:flex;
-gap:30px;
-font-size:14px;
-}
-
-.nav-links a{
-color:#aaa;
-text-decoration:none;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:white;
-}
-
-/* Subtitle */
-.sub-title{
-text-align:center;
-margin-top:40px;
-color:#888;
-letter-spacing:3px;
-font-size:12px;
-}
-
-/* Slider */
-.slider-container{
-position:relative;
-width:100%;
-height:550px;
-display:flex;
-align-items:center;
-justify-content:center;
-margin-top:40px;
-overflow:hidden;
-cursor:grab;
-}
-
-.slider{
-display:flex;
-gap:40px;
-transition:transform .6s cubic-bezier(.25,.8,.25,1);
-}
-
-.card{
-width:220px;
-height:450px;
-border-radius:30px;
-background:#111;
-position:relative;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:flex-end;
-padding-bottom:40px;
-opacity:.25;
-transform:scale(.85);
-transition:.5s;
-}
-
-.card.active{
-opacity:1;
-transform:scale(1.1);
-background:linear-gradient(180deg,#003d2e,#001a12);
-box-shadow:0 0 40px rgba(0,255,120,0.4);
-}
-
-.avatar{
-position:absolute;
-top:120px;
-width:150px;
-height:150px;
-border-radius:50%;
-overflow:hidden;
-border:6px solid white;
-}
-
-.avatar img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.role{
-font-size:11px;
-letter-spacing:2px;
-color:#ccc;
-}
-
-.name{
-font-weight:700;
-margin-top:5px;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al'Arabawy Family | MTA</title>
+    <style>
+        :root {
+            --neon-blue: #00d4ff;
+            --dark-bg: #050a14;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80');
+            background-size: cover;
+            border-bottom: 3px solid var(--neon-blue);
+            box-shadow: 0 0 20px var(--neon-blue);
+        }
+        h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+            margin-bottom: 10px;
+        }
+        .leader-card {
+            border: 1px solid var(--neon-blue);
+            padding: 20px;
+            margin: 20px;
+            display: inline-block;
+            width: 250px;
+            border-radius: 15px;
+            transition: 0.3s;
+            box-shadow: 0 0 5px var(--neon-blue);
+        }
+        .leader-card:hover {
+            box-shadow: 0 0 25px var(--neon-blue);
+            transform: translateY(-10px);
+        }
+        .section { padding: 80px 20px; }
+        .btn {
+            background: transparent;
+            border: 2px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.4s;
+        }
+        .btn:hover { background: var(--neon-blue); color: black; }
+    </style>
 </head>
 <body>
 
-<div class="navbar">
-<div class="logo">BROCK</div>
+    <section class="hero">
+        <h1>Al'Arabawy Family</h1>
+        <p style="font-size: 1.5rem;">SINCE 2024 • THE LEGACY CONTINUES</p>
+        <br>
+        <a href="#about" class="btn">اكتشف الإرث</a>
+    </section>
 
-<div class="nav-links">
-<a href="#">HOME</a>
-<a href="#">ABOUT</a>
-<a href="#">QUESTS</a>
-<a href="#">LEADERBOARD</a>
-<a href="#">STAFF</a>
-<a href="#">APPLY</a>
-</div>
-</div>
+    <section id="about" class="section">
+        <h2 style="color: var(--neon-blue);">عن عائلة العرباوي</h2>
+        <p style="max-width: 800px; margin: auto; line-height: 1.8;">
+            نحن كيان تأسس في قلب سيرفر Wnash Time. نؤمن بالقوة، النظام، والولاء المطلق. 
+            عائلتنا ليست مجرد تحالف، بل هي حصن منيع لكل من يحمل وسم [Arabawy].
+        </p>
+    </section>
 
-<div class="sub-title">
-SINCE 2022 • THE BROCK LEGACY
-</div>
+    <section class="section">
+        <h2 style="color: var(--neon-blue);">مجلس القيادة</h2>
+        <div class="leader-card">
+            <h3>Ryder Al'Arabawy</h3>
+            <p>CEO & Founder</p>
+        </div>
+        <div class="leader-card">
+            <h3>قريباً</h3>
+            <p>منصب شاغر</p>
+        </div>
+        <div class="leader-card">
+            <h3>قريباً</h3>
+            <p>منصب شاغر</p>
+        </div>
+    </section>
 
-<div class="slider-container" id="container">
-<div class="slider" id="slider">
-
-<div class="card"><div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div><div class="role">MEMBER</div><div class="name">Member 1</div></div>
-<div class="card"><div class="avatar"><img src="https://i.imgur.com/8Km9tLL.jpg"></div><div class="role">MEMBER</div><div class="name">Member 2</div></div>
-<div class="card active"><div class="avatar"><img src="https://i.imgur.com/8Km9tLL.jpg"></div><div class="role">CHAIRMAN</div><div class="name">ROBIN BROCK</div></div>
-<div class="card"><div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div><div class="role">MEMBER</div><div class="name">Member 3</div></div>
-<div class="card"><div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div><div class="role">MEMBER</div><div class="name">Member 4</div></div>
-
-</div>
-</div>
-
-<script>
-const slider = document.getElementById('slider');
-const container = document.getElementById('container');
-const cards = document.querySelectorAll('.card');
-
-let current = 2;
-let autoSlide;
-let isDragging = false;
-let startX, currentTranslate = 0;
-
-function updateSlider(){
-cards.forEach(card=>card.classList.remove('active'));
-cards[current].classList.add('active');
-
-const offset = (220 + 40) * current - (window.innerWidth / 2 - 110);
-slider.style.transform = `translateX(-${offset}px)`;
-currentTranslate = -offset;
-}
-
-function next(){
-current = (current + 1) % cards.length;
-updateSlider();
-}
-
-function startAuto(){
-autoSlide = setInterval(next, 3500);
-}
-
-function stopAuto(){
-clearInterval(autoSlide);
-}
-
-container.addEventListener('mouseenter', stopAuto);
-container.addEventListener('mouseleave', startAuto);
-
-/* Drag */
-container.addEventListener('mousedown', (e)=>{
-isDragging = true;
-startX = e.pageX;
-container.style.cursor = "grabbing";
-stopAuto();
-});
-
-container.addEventListener('mouseup', ()=>{
-isDragging = false;
-container.style.cursor = "grab";
-startAuto();
-});
-
-container.addEventListener('mousemove', (e)=>{
-if(!isDragging) return;
-let diff = e.pageX - startX;
-if(diff > 100){
-current = current > 0 ? current-1 : cards.length-1;
-updateSlider();
-isDragging=false;
-}
-if(diff < -100){
-current = (current+1)%cards.length;
-updateSlider();
-isDragging=false;
-}
-});
-
-updateSlider();
-startAuto();
-</script>
+    <footer style="padding: 40px; border-top: 1px solid #222;">
+        <p>Al'Arabawy Family © 2024 | All Rights Reserved</p>
+        <div style="font-size: 2rem;">
+            <a href="#" style="color: var(--neon-blue); margin: 10px;">Discord</a>
+        </div>
+    </footer>
 
 </body>
 </html>
