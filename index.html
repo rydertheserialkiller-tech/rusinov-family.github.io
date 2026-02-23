@@ -9,12 +9,12 @@
 
     <style>
         :root {
-            --neon-blue: #00e5ff; /* أزرق نيون ساطع */
-            --dark-blue: #020b1a; /* كحلي غامق جداً للخلفية */
+            --neon-blue: #00e5ff; /* لون النيون الأساسي */
+            --dark-bg: #02050a;   /* لون الخلفية الغامق */
         }
 
         body {
-            background-color: var(--dark-blue);
+            background-color: var(--dark-bg);
             color: #ffffff;
             font-family: 'Exo 2', sans-serif;
             font-style: italic;
@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* الجزء العلوي مع خلفية المدينة المضببة */
+        /* الجزء العلوي (Hero) مع صورة Vinewood المضببة */
         .hero {
             position: relative;
             height: 100vh;
@@ -34,130 +34,145 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            /* استبدال برابط صورة مدينة حقيقية مع إضافة تأثير Blur */
-            background: linear-gradient(rgba(2, 11, 26, 0.7), rgba(2, 11, 26, 0.7)), 
-                        url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2000'); 
-            background-size: cover;
-            background-position: center;
-            filter: grayscale(20%); /* تقليل الألوان قليلاً لتركيز النيون */
-            border-bottom: 4px solid var(--neon-blue);
-            box-shadow: 0 0 40px rgba(0, 229, 255, 0.3);
+            overflow: hidden;
         }
 
-        /* العنوان الرئيسي بدون كلمة THE */
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* صورة Vinewood بدون أشخاص */
+            background: linear-gradient(rgba(2, 5, 10, 0.6), rgba(2, 5, 10, 0.8)), 
+                        url('https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2000'); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px); /* تأثير التضبيب المطلوب */
+            transform: scale(1.1); /* لمنع حواف الـ Blur من الظهور بيضاء */
+            z-index: -1;
+        }
+
         h1 {
             font-size: 6rem;
             margin: 0;
             color: #fff;
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 30px var(--neon-blue);
-            letter-spacing: 5px;
+            text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
+            letter-spacing: 4px;
         }
 
         .tagline {
             color: var(--neon-blue);
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+            font-size: 1.4rem;
+            letter-spacing: 5px;
+            margin-bottom: 5px;
         }
 
-        /* حاوية المربعات */
+        /* الخط الفاصل تحت العنوان */
+        .separator {
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+            margin: 20px auto;
+            box-shadow: 0 0 15px var(--neon-blue);
+        }
+
+        /* المربعات (Features) */
         .features-container {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            padding: 100px 50px;
+            gap: 25px;
+            padding: 80px 50px;
             flex-wrap: wrap;
-            background: linear-gradient(to bottom, #020b1a, #000);
+            background: #02050a;
         }
 
         .feature-card {
-            background: rgba(0, 229, 255, 0.03);
-            border: 1px solid rgba(0, 229, 255, 0.2);
-            border-radius: 15px;
-            padding: 50px 30px;
+            background: rgba(0, 229, 255, 0.02);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            border-radius: 10px;
+            padding: 45px 25px;
             width: 300px;
             transition: 0.4s;
-            backdrop-filter: blur(10px); /* تأثير زجاجي مضبب للمربعات */
         }
 
         .feature-card:hover {
             border-color: var(--neon-blue);
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
             transform: translateY(-10px);
+            background: rgba(0, 229, 255, 0.05);
         }
 
         .feature-title {
-            font-size: 1.6rem;
-            margin-bottom: 20px;
+            font-size: 1.5rem;
             color: var(--neon-blue);
+            margin-bottom: 15px;
         }
 
         .feature-desc {
-            font-size: 0.95rem;
-            color: #a0aec0;
-            font-style: normal; /* جعل الوصف مريح للعين */
+            font-size: 0.9rem;
+            color: #8892b0;
+            font-style: normal;
             font-weight: 400;
-            line-height: 1.5;
-            text-transform: none; /* الحروف صغيرة في الوصف فقط */
+            line-height: 1.6;
+            text-transform: none;
         }
 
-        /* الزر الاحترافي */
-        .btn {
-            margin-top: 50px;
+        /* الزر */
+        .apply-btn {
             display: inline-block;
-            padding: 20px 60px;
+            margin: 40px 0;
+            padding: 18px 50px;
             background: var(--neon-blue);
             color: #000;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 900;
-            clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+            border-radius: 4px;
             transition: 0.3s;
         }
 
-        .btn:hover {
-            box-shadow: 0 0 50px var(--neon-blue);
+        .apply-btn:hover {
+            box-shadow: 0 0 40px var(--neon-blue);
             transform: scale(1.05);
         }
 
         footer {
-            padding: 60px;
-            color: #4a5568;
-            font-size: 0.9rem;
+            padding: 40px;
+            color: #333;
+            font-size: 0.8rem;
+            border-top: 1px solid #111;
         }
     </style>
 </head>
 <body>
 
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="tagline">Wnash Time Server</div>
         <h1>AL'ARABAWI</h1>
-        <p style="font-style: normal; font-weight: 400; color: #ccc;">Dominating the streets with loyalty and power</p>
+        <p style="font-style: normal; font-weight: 400; color: #aaa; margin-top: 10px;">The Most Powerful Syndicate In San Andreas</p>
+        
+        <a href="YOUR_DISCORD_LINK" class="apply-btn">APPLY TO JOIN</a>
+        <div class="separator"></div>
     </section>
 
     <div class="features-container">
         <div class="feature-card">
             <div class="feature-title">ARABAWI LEGACY</div>
-            <div class="feature-desc">Born from the streets of Wnash Time, we built an empire on blood and loyalty.</div>
+            <div class="feature-desc">Built from the ground up on the principles of absolute loyalty and strategic power.</div>
         </div>
 
         <div class="feature-card">
             <div class="feature-title">STRATEGIC SYNDICATE</div>
-            <div class="feature-desc">We don't just fight; we plan. Every move is calculated for maximum dominance.</div>
+            <div class="feature-desc">Every operation is planned with surgical precision. We control the streets, we control the game.</div>
         </div>
 
         <div class="feature-card">
             <div class="feature-title">UNBREAKABLE BOND</div>
-            <div class="feature-desc">In the Al'Arabawy family, your brother is your shield. We stand together or not at all.</div>
+            <div class="feature-desc">In the Al'Arabawy family, brotherhood is everything. We fight together, we win together.</div>
         </div>
     </div>
 
-    <section style="padding-bottom: 100px;">
-        <a href="YOUR_DISCORD_LINK" class="btn">Apply To Join</a>
-    </section>
-
     <footer>
-        AL'ARABAWI FAMILY © 2026 | THE LEGACY CONTINUES
+        AL'ARABAWI FAMILY © 2024 | ALL RIGHTS RESERVED
     </footer>
 
 </body>
