@@ -1,133 +1,183 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rave Family</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brock Family</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-      background: radial-gradient(circle at center, #111827, #020617);
-      overflow-x: hidden;
-    }
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
 
-    /* NAVBAR */
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: rgba(0,0,0,0.4);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      width: 100%;
-      top: 0;
-    }
+<style>
 
-    .logo {
-      font-weight: bold;
-      font-size: 20px;
-      color: #a78bfa;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
 
-    .menu a {
-      margin: 0 15px;
-      color: #cbd5f5;
-      text-decoration: none;
-      font-size: 14px;
-    }
+body{
+    background: radial-gradient(circle at top, #111 0%, #000 70%);
+    color:white;
+    text-align:center;
+}
 
-    /* HERO */
-    .hero {
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.container{
+    padding:60px 20px;
+}
 
-    .cards {
-      display: flex;
-      gap: 20px;
-      align-items: end;
-    }
+.logo img{
+    width:180px;
+    margin-bottom:30px;
+}
 
-    .card {
-      width: 160px;
-      height: 420px;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      padding: 20px;
-      transition: 0.3s;
-    }
+h1{
+    font-size:3rem;
+    font-weight:800;
+    margin-bottom:20px;
+}
 
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-    }
+.highlight{
+    color:#4da6ff;
+}
 
-    .card.main {
-      height: 480px;
-      background: linear-gradient(180deg,#6d5cff,#2b1f8f);
-      transform: scale(1.05);
-    }
+.buttons{
+    margin-top:30px;
+}
 
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: #8b5cf6;
-    }
+.btn{
+    display:inline-block;
+    padding:14px 28px;
+    margin:10px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+    transition:0.3s ease;
+}
 
-    .name {
-      position: absolute;
-      bottom: 15px;
-      font-size: 14px;
-      color: white;
-    }
-  </style>
+.btn-primary{
+    background:#4da6ff;
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#2b8cff;
+    transform:scale(1.05);
+}
+
+.btn-outline{
+    border:2px solid #4da6ff;
+    color:#4da6ff;
+}
+
+.btn-outline:hover{
+    background:#4da6ff;
+    color:white;
+    transform:scale(1.05);
+}
+
+/* Features Section */
+
+.features{
+    margin-top:100px;
+    padding:40px 20px;
+}
+
+.features h2{
+    font-size:2rem;
+    margin-bottom:40px;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    gap:20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.card{
+    background:#111;
+    padding:25px;
+    border-radius:12px;
+    transition:0.3s ease;
+    border:1px solid #222;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    border-color:#4da6ff;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#4da6ff;
+}
+
+footer{
+    margin-top:100px;
+    padding:20px;
+    background:#0a0a0a;
+    font-size:14px;
+    color:#666;
+}
+
+</style>
 </head>
-
 <body>
 
-  <div class="nav">
-    <div class="logo">RAVE</div>
-    <div class="menu">
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Members</a>
-      <a href="#">Apply</a>
+<div class="container">
+
+    <div class="logo">
+        <img src="logo.png" alt="Logo">
     </div>
-  </div>
 
-  <div class="hero">
-    <div class="cards">
+    <h1>
+        Brock Family experience <br>
+        is now even <span class="highlight">better</span>
+    </h1>
 
-      <div class="card">
-        <img src="https://via.placeholder.com/150x250">
-      </div>
+    <div class="buttons">
+        <a href="#" class="btn btn-primary">Apply Now</a>
+        <a href="#" class="btn btn-outline">Join Discord</a>
+    </div>
 
-      <div class="card">
-        <img src="https://via.placeholder.com/150x250">
-      </div>
+</div>
 
-      <div class="card main">
-        <img src="https://via.placeholder.com/150x250">
-      </div>
+<section class="features">
 
-      <div class="card">
-        <img src="https://via.placeholder.com/150x250">
-      </div>
+    <h2>FEATURES</h2>
 
-      <div class="card">
-        <img src="https://via.placeholder.com/150x250">
-      </div>
+    <div class="feature-grid">
+
+        <div class="card">
+            <h3>Exclusive Events</h3>
+            <p>فعاليات نادرة ومميزة داخل السيرفر.</p>
+        </div>
+
+        <div class="card">
+            <h3>Strong Community</h3>
+            <p>مجتمع قوي ومترابط يعمل بروح الفريق.</p>
+        </div>
+
+        <div class="card">
+            <h3>Big Achievements</h3>
+            <p>إنجازات ضخمة وتاريخ مشرف داخل اللعبة.</p>
+        </div>
+
+        <div class="card">
+            <h3>Future Vision</h3>
+            <p>خطط واستراتيجيات مستقبلية مبتكرة.</p>
+        </div>
 
     </div>
-  </div>
+
+</section>
+
+<footer>
+    © 2026 Brock Family - All Rights Reserved
+</footer>
 
 </body>
 </html>
