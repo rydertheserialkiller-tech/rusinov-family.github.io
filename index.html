@@ -16,9 +16,37 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#070713;
+background:#050510;
 color:white;
 overflow:hidden;
+position:relative;
+}
+
+/* خلفية مدينة */
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:url("https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1920&q=80");
+background-size:cover;
+background-position:center;
+opacity:.08;
+z-index:-2;
+}
+
+/* Glow أخضر غامق */
+body::after{
+content:"";
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle, rgba(0,255,120,0.25) 0%, transparent 70%);
+top:40%;
+left:50%;
+transform:translate(-50%,-50%);
+z-index:-1;
+filter:blur(120px);
 }
 
 /* NAVBAR */
@@ -52,16 +80,16 @@ transition:.3s;
 color:white;
 }
 
-/* SUBTITLE */
+/* Subtitle */
 .sub-title{
 text-align:center;
 margin-top:40px;
-color:#666;
+color:#888;
 letter-spacing:3px;
 font-size:12px;
 }
 
-/* SLIDER */
+/* Slider */
 .slider-container{
 position:relative;
 width:100%;
@@ -71,6 +99,7 @@ align-items:center;
 justify-content:center;
 margin-top:40px;
 overflow:hidden;
+cursor:grab;
 }
 
 .slider{
@@ -90,7 +119,7 @@ flex-direction:column;
 align-items:center;
 justify-content:flex-end;
 padding-bottom:40px;
-opacity:.3;
+opacity:.25;
 transform:scale(.85);
 transition:.5s;
 }
@@ -98,7 +127,8 @@ transition:.5s;
 .card.active{
 opacity:1;
 transform:scale(1.1);
-background:linear-gradient(180deg,#6b5cff,#2a1d80);
+background:linear-gradient(180deg,#003d2e,#001a12);
+box-shadow:0 0 40px rgba(0,255,120,0.4);
 }
 
 .avatar{
@@ -120,37 +150,13 @@ object-fit:cover;
 .role{
 font-size:11px;
 letter-spacing:2px;
-color:#ddd;
+color:#ccc;
 }
 
 .name{
 font-weight:700;
 margin-top:5px;
 }
-
-.arrow{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-font-size:30px;
-cursor:pointer;
-color:white;
-background:rgba(255,255,255,0.05);
-width:50px;
-height:50px;
-display:flex;
-align-items:center;
-justify-content:center;
-border-radius:50%;
-transition:.3s;
-}
-
-.arrow:hover{
-background:rgba(255,255,255,0.2);
-}
-
-.arrow.left{left:40px;}
-.arrow.right{right:40px;}
 
 </style>
 </head>
@@ -173,52 +179,27 @@ background:rgba(255,255,255,0.2);
 SINCE 2022 • THE BROCK LEGACY
 </div>
 
-<div class="slider-container">
-
-<div class="arrow left" onclick="prev()">‹</div>
-
+<div class="slider-container" id="container">
 <div class="slider" id="slider">
 
-<div class="card">
-<div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div>
-<div class="role">MEMBER</div>
-<div class="name">Member 1</div>
-</div>
-
-<div class="card">
-<div class="avatar"><img src="https://i.imgur.com/8Km9tLL.jpg"></div>
-<div class="role">MEMBER</div>
-<div class="name">Member 2</div>
-</div>
-
-<div class="card active">
-<div class="avatar"><img src="https://i.imgur.com/8Km9tLL.jpg"></div>
-<div class="role">CHAIRMAN</div>
-<div class="name">ROBIN BROCK</div>
-</div>
-
-<div class="card">
-<div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div>
-<div class="role">MEMBER</div>
-<div class="name">Member 3</div>
-</div>
-
-<div class="card">
-<div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div>
-<div class="role">MEMBER</div>
-<div class="name">Member 4</div>
-</div>
+<div class="card"><div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div><div class="role">MEMBER</div><div class="name">Member 1</div></div>
+<div class="card"><div class="avatar"><img src="https://i.imgur.com/8Km9tLL.jpg"></div><div class="role">MEMBER</div><div class="name">Member 2</div></div>
+<div class="card active"><div class="avatar"><img src="https://i.imgur.com/8Km9tLL.jpg"></div><div class="role">CHAIRMAN</div><div class="name">ROBIN BROCK</div></div>
+<div class="card"><div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div><div class="role">MEMBER</div><div class="name">Member 3</div></div>
+<div class="card"><div class="avatar"><img src="https://i.imgur.com/1X6n6Yp.jpg"></div><div class="role">MEMBER</div><div class="name">Member 4</div></div>
 
 </div>
-
-<div class="arrow right" onclick="next()">›</div>
-
 </div>
 
 <script>
 const slider = document.getElementById('slider');
+const container = document.getElementById('container');
 const cards = document.querySelectorAll('.card');
+
 let current = 2;
+let autoSlide;
+let isDragging = false;
+let startX, currentTranslate = 0;
 
 function updateSlider(){
 cards.forEach(card=>card.classList.remove('active'));
@@ -226,23 +207,56 @@ cards[current].classList.add('active');
 
 const offset = (220 + 40) * current - (window.innerWidth / 2 - 110);
 slider.style.transform = `translateX(-${offset}px)`;
+currentTranslate = -offset;
 }
 
 function next(){
-if(current < cards.length - 1){
-current++;
+current = (current + 1) % cards.length;
 updateSlider();
-}
 }
 
-function prev(){
-if(current > 0){
-current--;
-updateSlider();
-}
+function startAuto(){
+autoSlide = setInterval(next, 3500);
 }
 
+function stopAuto(){
+clearInterval(autoSlide);
+}
+
+container.addEventListener('mouseenter', stopAuto);
+container.addEventListener('mouseleave', startAuto);
+
+/* Drag */
+container.addEventListener('mousedown', (e)=>{
+isDragging = true;
+startX = e.pageX;
+container.style.cursor = "grabbing";
+stopAuto();
+});
+
+container.addEventListener('mouseup', ()=>{
+isDragging = false;
+container.style.cursor = "grab";
+startAuto();
+});
+
+container.addEventListener('mousemove', (e)=>{
+if(!isDragging) return;
+let diff = e.pageX - startX;
+if(diff > 100){
+current = current > 0 ? current-1 : cards.length-1;
 updateSlider();
+isDragging=false;
+}
+if(diff < -100){
+current = (current+1)%cards.length;
+updateSlider();
+isDragging=false;
+}
+});
+
+updateSlider();
+startAuto();
 </script>
 
 </body>
