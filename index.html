@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al'Arabawy Family | Wnash Time MTA:SA</title>
+    <title>Al'Arabawy Family | Wnash Time RolePlay.</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800;1,900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -12,7 +12,7 @@
             --bg-color: #02050a;
             --card-bg: #050a14;
             --border-color: #1a202c;
-            --accent-color: #00e5ff;
+            --accent-color: #002766; /* الأزرق النيون */
             --text-main: #ffffff;
             --text-muted: #8892b0;
         }
@@ -32,6 +32,7 @@
             text-transform: uppercase;
         }
 
+        /* --- القائمة العلوية --- */
         nav {
             display: flex;
             justify-content: space-between;
@@ -60,6 +61,7 @@
 
         .nav-links a:hover { color: var(--accent-color); }
 
+        /* --- الهيدر (Hero) --- */
         .hero {
             height: 100vh;
             display: flex;
@@ -68,13 +70,14 @@
             align-items: center;
             text-align: center;
             background: linear-gradient(rgba(2, 5, 10, 0.6), rgba(2, 5, 10, 0.9)), 
-                        url('https://cdn.discordapp.com/attachments/943225659336056842/1475497954336047104/mta-screen_2025-07-24_04-38-29.png?ex=699db40d&is=699c628d&hm=fb4e126869dd47b9c112e7e5bd9fd9cb47ef6718e6f66436eb120a4c0ee92775&animated=true') center/cover;
+                        url('https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2000') center/cover;
             padding-top: 60px;
         }
 
         .hero p { color: var(--accent-color); letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 10px; font-weight: bold; }
         .hero h1 { font-size: 6rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent-color); }
 
+        /* --- الأقسام العامة --- */
         .section { padding: 100px 10%; border-bottom: 1px solid var(--border-color); }
         .section-header { text-align: center; margin-bottom: 60px; }
         .section-header h2 { font-size: 3rem; margin: 0 0 10px 0; color: #fff; }
@@ -94,9 +97,93 @@
         .card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--accent-color); }
         .card p { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
 
-        .staff-card { text-align: center; }
-        .staff-role { color: #fff; font-size: 0.75rem; font-weight: bold; letter-spacing: 2px; margin-top: 10px; opacity: 0.7; }
+        /* --- قسم الستاف الجديد بالصور --- */
+        .staff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
+        .staff-member {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #0a0a0a;
+            transition: 0.5s ease;
+            border: 1px solid var(--border-color);
+            height: 450px;
+        }
+
+        .staff-img-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .staff-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) brightness(0.7); /* أبيض وأسود ومظلمة قليلاً بالبداية */
+            transition: 0.5s ease;
+        }
+
+        .staff-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 229, 255, 0.9) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px 20px;
+            opacity: 0;
+            transition: 0.5s ease;
+            box-sizing: border-box;
+        }
+
+        /* تأثير الماوس (Hover) */
+        .staff-member:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+        }
+
+        .staff-member:hover .staff-img {
+            filter: grayscale(0%) brightness(1); /* الصورة تتلون وتضيء */
+            transform: scale(1.05);
+        }
+
+        .staff-member:hover .staff-overlay {
+            opacity: 1;
+        }
+
+        .staff-rank {
+            color: #000;
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 900;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            background: #fff;
+            padding: 5px 12px;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            border-radius: 3px;
+        }
+
+        .staff-name {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 900;
+            font-style: italic;
+            margin: 0;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* --- الأزرار وصناديق التحميل --- */
         .download-box {
             display: flex; justify-content: space-between; align-items: center;
             background: var(--card-bg); border: 1px solid var(--border-color);
@@ -122,14 +209,14 @@
         <div class="nav-links">
             <a href="#">HOME</a>
             <a href="#about">ABOUT</a>
-            <a href="#staff">HIGH STAFF</a>
+            <a href="#staff">STAFF</a>
             <a href="https://discord.gg/dV4Z3cwyqE" target="_blank">APPLY</a>
             <a href="https://discord.gg/dV4Z3cwyqE" target="_blank">DISCORD</a>
         </div>
     </nav>
 
     <section class="hero">
-        <p>SINCE 2025 • AL'ARABAWI FAMILY.</p>
+        <p>SINCE 2024 • THE AL'ARABAWI SYNDICATE</p>
         <h1>AL'ARABAWI</h1>
         <br>
         <a href="https://discord.gg/dV4Z3cwyqE" target="_blank" class="btn">JOIN THE FAMILY</a>
@@ -144,7 +231,7 @@
         <div class="grid">
             <div class="card">
                 <h3>ARABAWI LEGACY</h3>
-                <p>Al'Arabawy family was founded on the principles of brotherhood and absolute dominance. What started as a small group of allies has evolved into a structured syndicate. We carry our name with pride and protect our members at all costs.</p>
+                <p>The Al'Arabawy family was founded on the principles of brotherhood and absolute dominance. What started as a small group of allies has evolved into a structured syndicate. We carry our name with pride and protect our members at all costs.</p>
             </div>
             <div class="card">
                 <h3>STRATEGIC SYNDICATE</h3>
@@ -163,26 +250,68 @@
 
     <section id="staff" class="section">
         <div class="section-header">
-            <h2>High Staff</h2>
-            <p>The leadership council of Al'Arabawy</p>
+            <h2>ARABAWI STAFF</h2>
+            <p>CLASSIFIED RECORDS</p>
         </div>
-        <div class="grid">
-            <div class="card staff-card">
-                <h3>Ryder Al'Arabawy</h3>
-                <div class="staff-role">CEO & FOUNDER</div>
+        
+        <div class="staff-grid">
+            <div class="staff-member">
+                <div class="staff-img-container">
+                    <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?q=80&w=600" alt="Ryder" class="staff-img">
+                    <div class="staff-overlay">
+                        <span class="staff-rank">CEO & FOUNDER</span>
+                        <h3 class="staff-name">Ryder Al'Arabawy</h3>
+                    </div>
+                </div>
             </div>
-            <div class="card staff-card">
-                <h3>VACANT POSITION</h3>
-                <div class="staff-role">STRATEGY ARCHITECT</div>
+
+            <div class="staff-member">
+                <div class="staff-img-container">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600" alt="Staff 2" class="staff-img">
+                    <div class="staff-overlay">
+                        <span class="staff-rank">STRATEGY ARCHITECT</span>
+                        <h3 class="staff-name">Position Vacant</h3>
+                    </div>
+                </div>
             </div>
-            <div class="card staff-card">
-                <h3>VACANT POSITION</h3>
-                <div class="staff-role">CHAIRMAN</div>
+
+            <div class="staff-member">
+                <div class="staff-img-container">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=600" alt="Staff 3" class="staff-img">
+                    <div class="staff-overlay">
+                        <span class="staff-rank">CHAIRMAN</span>
+                        <h3 class="staff-name">Position Vacant</h3>
+                    </div>
+                </div>
             </div>
-            <div class="card staff-card">
-                <h3>VACANT POSITION</h3>
-                <div class="staff-role">FIELD OVERSEER</div>
+            
+            <div class="staff-member">
+                <div class="staff-img-container">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=600" alt="Staff 4" class="staff-img">
+                    <div class="staff-overlay">
+                        <span class="staff-rank">FIELD OVERSEER</span>
+                        <h3 class="staff-name">Position Vacant</h3>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="section-header"><h2>HOW TO START</h2></div>
+        <div class="download-box">
+            <div>
+                <h3 style="margin:0; color:#fff;">GTA SA GAME</h3>
+                <p style="color:var(--text-muted); margin:5px 0 0 0; text-transform:none; font-style:normal;">Get the official game to start your journey.</p>
+            </div>
+            <a href="#" class="btn">DOWNLOAD</a>
+        </div>
+        <div class="download-box">
+            <div>
+                <h3 style="margin:0; color:#fff;">MTA LAUNCHER</h3>
+                <p style="color:var(--text-muted); margin:5px 0 0 0; text-transform:none; font-style:normal;">Download Multi Theft Auto for multiplayer play.</p>
+            </div>
+            <a href="#" class="btn">LAUNCHER</a>
         </div>
     </section>
 
