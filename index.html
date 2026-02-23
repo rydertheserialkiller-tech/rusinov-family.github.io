@@ -5,203 +5,174 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AL'ARABAWI FAMILY | Wnash Time</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --neon-blue: #00e5ff; /* لون النيون الأساسي */
+            --neon-blue: #002766; /* لون النيون الأساسي */
+            --dark-bg: #02050a;   /* لون الخلفية الغامق */
         }
 
-        body, html {
+        body {
+            background-color: var(--dark-bg);
+            color: #ffffff;
+            font-family: 'Exo 2', sans-serif;
+            font-style: italic;
+            font-weight: 900;
             margin: 0;
             padding: 0;
-            width: 100%;
-            height: 100%;
-            font-family: 'Exo 2', sans-serif;
-            background-color: #050a14;
-            color: #ffffff;
+            text-align: center;
+            text-transform: uppercase;
             overflow-x: hidden;
         }
 
-        /* حاوية الخلفية المضببة */
-        .background-container {
-            position: fixed;
-            top: -5%;
-            left: -5%;
-            width: 110%;
-            height: 110%;
-            /* يمكنك تغيير الرابط هنا برابط صورتك المرفوعة إذا أردت */
-            background: url('blob:https://gemini.google.com/81b34c36-4076-4a2b-8b48-16ea7cef3d16') center/cover no-repeat;
-            filter: blur(12px) brightness(0.4); /* التضبيب والتعتيم */
-            z-index: -1;
-        }
-
-        /* المحتوى الأساسي */
-        .main-content {
+        /* الجزء العلوي (Hero) مع صورة Vinewood المضببة */
+        .hero {
+            position: relative;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
-            min-height: 60vh;
-            padding: 0 10%;
-            margin-top: 5vh;
+            align-items: center;
+            overflow: hidden;
         }
 
-        .server-name {
-            color: var(--neon-blue);
-            font-size: 1.5rem;
-            font-style: italic;
-            font-weight: 400;
-            margin-bottom: -10px;
-            letter-spacing: 2px;
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* صورة Vinewood بدون أشخاص */
+            background: linear-gradient(rgba(2, 5, 10, 0.6), rgba(2, 5, 10, 0.8)), 
+                        url('https://cdn.discordapp.com/attachments/943225659336056842/1475497954336047104/mta-screen_2025-07-24_04-38-29.png?ex=699db40d&is=699c628d&hm=fb4e126869dd47b9c112e7e5bd9fd9cb47ef6718e6f66436eb120a4c0ee92775&animated=true'); 
+            background-size: cover;
+            background-position: center;
+            filter: blur(8px); /* تأثير التضبيب المطلوب */
+            transform: scale(1.1); /* لمنع حواف الـ Blur من الظهور بيضاء */
+            z-index: -1;
         }
 
         h1 {
             font-size: 6rem;
-            font-style: italic;
-            font-weight: 900;
-            color: #ffffff;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(0, 229, 255, 0.5), 0 0 20px rgba(0, 229, 255, 0.3);
-            margin: 10px 0;
-            letter-spacing: 3px;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 0 15px var(--neon-blue), 0 0 30px var(--neon-blue);
+            letter-spacing: 4px;
         }
 
-        .subtitle {
-            font-size: 1.2rem;
-            font-style: italic;
-            font-weight: 400;
-            color: #e0e0e0;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
+        .tagline {
+            color: var(--neon-blue);
+            font-size: 1.4rem;
+            letter-spacing: 5px;
+            margin-bottom: 5px;
         }
 
-        .apply-btn {
-            display: inline-block;
-            background-color: var(--neon-blue);
-            color: #000000;
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            font-weight: 900;
-            font-style: italic;
-            text-decoration: none;
-            text-transform: uppercase;
-            border-radius: 3px;
-            box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
-            transition: all 0.3s ease;
-        }
-
-        .apply-btn:hover {
-            box-shadow: 0 0 30px rgba(0, 229, 255, 1);
-            transform: scale(1.05);
-            background-color: #ffffff;
-        }
-
-        /* الخط الفاصل المضيء */
-        .glow-line {
-            width: 100%;
+        /* الخط الفاصل تحت العنوان */
+        .separator {
+            width: 80%;
             height: 2px;
-            background: var(--neon-blue);
-            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-            margin: 40px 0;
+            background: linear-gradient(to right, transparent, var(--neon-blue), transparent);
+            margin: 20px auto;
+            box-shadow: 0 0 15px var(--neon-blue);
         }
 
-        /* قسم المربعات */
-        .features-wrapper {
-            padding: 0 10%;
-            padding-bottom: 50px;
-        }
-
+        /* المربعات (Features) */
         .features-container {
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
+            justify-content: center;
+            gap: 25px;
+            padding: 80px 50px;
             flex-wrap: wrap;
+            background: #02050a;
         }
 
         .feature-card {
-            flex: 1;
-            min-width: 250px;
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid var(--neon-blue);
-            border-radius: 5px;
-            padding: 30px 20px;
-            box-shadow: inset 0 0 20px rgba(0, 229, 255, 0.1), 0 0 15px rgba(0, 0, 0, 0.5);
-            transition: 0.3s ease;
-            backdrop-filter: blur(5px);
+            background: rgba(0, 229, 255, 0.02);
+            border: 1px solid rgba(0, 229, 255, 0.15);
+            border-radius: 10px;
+            padding: 45px 25px;
+            width: 300px;
+            transition: 0.4s;
         }
 
         .feature-card:hover {
-            box-shadow: inset 0 0 30px rgba(0, 229, 255, 0.2), 0 0 20px rgba(0, 229, 255, 0.4);
-            transform: translateY(-5px);
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 25px rgba(0, 229, 255, 0.2);
+            transform: translateY(-10px);
+            background: rgba(0, 229, 255, 0.05);
         }
 
         .feature-title {
+            font-size: 1.5rem;
             color: var(--neon-blue);
-            font-size: 1.3rem;
-            font-weight: 900;
-            font-style: italic;
             margin-bottom: 15px;
-            text-transform: uppercase;
         }
 
         .feature-desc {
-            color: #d1d5db;
-            font-size: 0.95rem;
-            font-weight: 400;
+            font-size: 0.9rem;
+            color: #8892b0;
             font-style: normal;
+            font-weight: 400;
             line-height: 1.6;
+            text-transform: none;
         }
 
-        /* الفوتر */
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #ffffff;
-            font-size: 0.9rem;
+        /* الزر */
+        .apply-btn {
+            display: inline-block;
+            margin: 40px 0;
+            padding: 18px 50px;
+            background: var(--neon-blue);
+            color: #000;
+            text-decoration: none;
+            font-size: 1.1rem;
             font-weight: 900;
-            font-style: italic;
-            background: rgba(0, 0, 0, 0.8);
-            text-transform: uppercase;
-            border-top: 1px solid rgba(0, 229, 255, 0.3);
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .apply-btn:hover {
+            box-shadow: 0 0 40px var(--neon-blue);
+            transform: scale(1.05);
+        }
+
+        footer {
+            padding: 40px;
+            color: #333;
+            font-size: 0.8rem;
+            border-top: 1px solid #111;
         }
     </style>
 </head>
 <body>
 
-    <div class="background-container"></div>
-
-    <div class="main-content">
-        <div class="server-name">Wnash Time Server</div>
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="tagline">Wnash Time Server</div>
         <h1>AL'ARABAWI</h1>
-        <div class="subtitle">The Most Powerful Syndicate In San Andreas</div>
+        <p style="font-style: normal; font-weight: 400; color: #aaa; margin-top: 10px;">The Most Powerful Syndicate In San Andreas</p>
         
-        <a href="#" class="apply-btn">APPLY TO JOIN</a>
-    </div>
+        <a href="YOUR_DISCORD_LINK" class="apply-btn">APPLY TO JOIN</a>
+        <div class="separator"></div>
+    </section>
 
-    <div class="glow-line"></div>
+    <div class="features-container">
+        <div class="feature-card">
+            <div class="feature-title">ARABAWI LEGACY</div>
+            <div class="feature-desc">Built from the ground up on the principles of absolute loyalty and strategic power.</div>
+        </div>
 
-    <div class="features-wrapper">
-        <div class="features-container">
-            <div class="feature-card">
-                <div class="feature-title">ARABAWI LEGACY</div>
-                <div class="feature-desc">Built from the ground up on the principles of absolute loyalty and strategic power.</div>
-            </div>
+        <div class="feature-card">
+            <div class="feature-title">STRATEGIC SYNDICATE</div>
+            <div class="feature-desc">Every operation is planned with surgical precision. We control the streets, we control the game.</div>
+        </div>
 
-            <div class="feature-card">
-                <div class="feature-title">STRATEGIC SYNDICATE</div>
-                <div class="feature-desc">Every operation is planned with surgical precision. We control the streets, we control the game.</div>
-            </div>
-
-            <div class="feature-card">
-                <div class="feature-title">UNBREAKABLE BOND</div>
-                <div class="feature-desc">In the Al'Arabawy family, brotherhood is everything. We fight together, we win together.</div>
-            </div>
+        <div class="feature-card">
+            <div class="feature-title">UNBREAKABLE BOND</div>
+            <div class="feature-desc">In the Al'Arabawy family, brotherhood is everything. We fight together, we win together.</div>
         </div>
     </div>
 
     <footer>
-        AL'ARABAWI FAMILY © 2026 | ALL RIGHTS RESERVED
+        AL'ARABAWI FAMILY © 2024 | ALL RIGHTS RESERVED
     </footer>
 
 </body>
