@@ -1,104 +1,147 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al'Arabawy Family | MTA</title>
+    <title>Al'Arabawy Family | Wnash Time MTA</title>
     <style>
         :root {
             --neon-blue: #00d4ff;
             --dark-bg: #050a14;
+            --accent-blue: #005f73;
         }
+
         body {
             background-color: var(--dark-bg);
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif; /* Futuristic font feel */
             margin: 0;
+            padding: 0;
+            overflow-x: hidden;
             text-align: center;
         }
+
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80');
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070'); 
             background-size: cover;
-            border-bottom: 3px solid var(--neon-blue);
+            background-position: center;
+            border-bottom: 2px solid var(--neon-blue);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 5rem;
+            letter-spacing: 10px;
+            text-transform: uppercase;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            color: var(--neon-blue);
+            margin-top: 10px;
+        }
+
+        /* Sections */
+        .section {
+            padding: 100px 10%;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--neon-blue);
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            text-shadow: 0 0 5px var(--neon-blue);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #cbd5e0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Leader Cards */
+        .leader-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .leader-card {
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid var(--neon-blue);
+            padding: 30px;
+            width: 280px;
+            border-radius: 0px; /* Sharp edges for a tougher look */
+            transition: 0.5s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-card:hover {
+            background: rgba(0, 212, 255, 0.15);
+            box-shadow: 0 0 25px var(--neon-blue);
+            transform: translateY(-15px);
+        }
+
+        .leader-card h3 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .leader-card p {
+            color: var(--neon-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        /* Button Style */
+        .btn {
+            margin-top: 30px;
+            display: inline-block;
+            padding: 15px 40px;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--neon-blue);
+            color: #000;
             box-shadow: 0 0 20px var(--neon-blue);
         }
-        h1 {
-            font-size: 4rem;
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
-            margin-bottom: 10px;
+
+        footer {
+            padding: 50px;
+            background: #02050a;
+            border-top: 1px solid #1a202c;
+            font-size: 0.8rem;
+            color: #718096;
         }
-        .leader-card {
-            border: 1px solid var(--neon-blue);
-            padding: 20px;
-            margin: 20px;
-            display: inline-block;
-            width: 250px;
-            border-radius: 15px;
-            transition: 0.3s;
-            box-shadow: 0 0 5px var(--neon-blue);
-        }
-        .leader-card:hover {
-            box-shadow: 0 0 25px var(--neon-blue);
-            transform: translateY(-10px);
-        }
-        .section { padding: 80px 20px; }
-        .btn {
-            background: transparent;
-            border: 2px solid var(--neon-blue);
+
+        .social-link {
             color: var(--neon-blue);
-            padding: 15px 30px;
             text-decoration: none;
+            margin: 0 15px;
             font-weight: bold;
-            border-radius: 5px;
-            transition: 0.4s;
-        }
-        .btn:hover { background: var(--neon-blue); color: black; }
-    </style>
-</head>
-<body>
-
-    <section class="hero">
-        <h1>Al'Arabawy Family</h1>
-        <p style="font-size: 1.5rem;">SINCE 2024 • THE LEGACY CONTINUES</p>
-        <br>
-        <a href="#about" class="btn">اكتشف الإرث</a>
-    </section>
-
-    <section id="about" class="section">
-        <h2 style="color: var(--neon-blue);">عن عائلة العرباوي</h2>
-        <p style="max-width: 800px; margin: auto; line-height: 1.8;">
-            نحن كيان تأسس في قلب سيرفر Wnash Time. نؤمن بالقوة، النظام، والولاء المطلق. 
-            عائلتنا ليست مجرد تحالف، بل هي حصن منيع لكل من يحمل وسم [Arabawy].
-        </p>
-    </section>
-
-    <section class="section">
-        <h2 style="color: var(--neon-blue);">مجلس القيادة</h2>
-        <div class="leader-card">
-            <h3>Ryder Al'Arabawy</h3>
-            <p>CEO & Founder</p>
-        </div>
-        <div class="leader-card">
-            <h3>قريباً</h3>
-            <p>منصب شاغر</p>
-        </div>
-        <div class="leader-card">
-            <h3>قريباً</h3>
-            <p>منصب شاغر</p>
-        </div>
-    </section>
-
-    <footer style="padding: 40px; border-top: 1px solid #222;">
-        <p>Al'Arabawy Family © 2024 | All Rights Reserved</p>
-        <div style="font-size: 2rem;">
-            <a href="#" style="color: var(--neon-blue); margin: 10px;">Discord</a>
-        </div>
-    </footer>
-
-</body>
-</html>
