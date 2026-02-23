@@ -12,7 +12,7 @@
             --bg-color: #02050a;
             --card-bg: #050a14;
             --border-color: #1a202c;
-            --accent-color: #00e5ff; /* أزرق نيون */
+            --accent-color: #00e5ff;
             --text-main: #ffffff;
             --text-muted: #8892b0;
         }
@@ -32,7 +32,6 @@
             text-transform: uppercase;
         }
 
-        /* Navbar */
         nav {
             display: flex;
             justify-content: space-between;
@@ -61,7 +60,6 @@
 
         .nav-links a:hover { color: var(--accent-color); }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -70,24 +68,18 @@
             align-items: center;
             text-align: center;
             background: linear-gradient(rgba(2, 5, 10, 0.6), rgba(2, 5, 10, 0.9)), 
-                        url('https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?q=80&w=2000') center/cover;
+                        url('https://cdn.discordapp.com/attachments/943225659336056842/1475497954336047104/mta-screen_2025-07-24_04-38-29.png?ex=699db40d&is=699c628d&hm=fb4e126869dd47b9c112e7e5bd9fd9cb47ef6718e6f66436eb120a4c0ee92775&animated=true') center/cover;
             padding-top: 60px;
         }
 
         .hero p { color: var(--accent-color); letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 10px; font-weight: bold; }
-
         .hero h1 { font-size: 6rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 20px var(--accent-color); }
 
-        /* Sections */
         .section { padding: 100px 10%; border-bottom: 1px solid var(--border-color); }
-
         .section-header { text-align: center; margin-bottom: 60px; }
-
         .section-header h2 { font-size: 3rem; margin: 0 0 10px 0; color: #fff; }
-
         .section-header p { color: var(--text-muted); font-size: 1.1rem; text-transform: uppercase; font-style: italic; }
 
-        /* Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
 
         .card {
@@ -96,20 +88,15 @@
             border-radius: 8px;
             padding: 40px 30px;
             transition: 0.4s;
-            position: relative;
         }
 
         .card:hover { border-color: var(--accent-color); transform: translateY(-10px); box-shadow: 0 0 20px rgba(0, 229, 255, 0.1); }
-
         .card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--accent-color); }
+        .card p { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
 
-        .card p { color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; font-style: normal; text-transform: none; }
-
-        /* Staff */
         .staff-card { text-align: center; }
         .staff-role { color: #fff; font-size: 0.75rem; font-weight: bold; letter-spacing: 2px; margin-top: 10px; opacity: 0.7; }
 
-        /* Buttons & Boxes */
         .download-box {
             display: flex; justify-content: space-between; align-items: center;
             background: var(--card-bg); border: 1px solid var(--border-color);
@@ -135,15 +122,17 @@
         <div class="nav-links">
             <a href="#">HOME</a>
             <a href="#about">ABOUT</a>
-            <a href="#staff">STAFF</a>
-            <a href="#">APPLY</a>
-            <a href="#">DISCORD</a>
+            <a href="#staff">HIGH STAFF</a>
+            <a href="https://discord.gg/dV4Z3cwyqE" target="_blank">APPLY</a>
+            <a href="https://discord.gg/dV4Z3cwyqE" target="_blank">DISCORD</a>
         </div>
     </nav>
 
     <section class="hero">
-        <p>SINCE 2024 • THE AL'ARABAWI SYNDICATE</p>
+        <p>SINCE 2025 • AL'ARABAWI FAMILY.</p>
         <h1>AL'ARABAWI</h1>
+        <br>
+        <a href="https://discord.gg/dV4Z3cwyqE" target="_blank" class="btn">JOIN THE FAMILY</a>
     </section>
 
     <section id="about" class="section">
@@ -155,7 +144,7 @@
         <div class="grid">
             <div class="card">
                 <h3>ARABAWI LEGACY</h3>
-                <p>The Al'Arabawy family was founded on the principles of brotherhood and absolute dominance. What started as a small group of allies has evolved into a structured syndicate. We carry our name with pride and protect our members at all costs.</p>
+                <p>Al'Arabawy family was founded on the principles of brotherhood and absolute dominance. What started as a small group of allies has evolved into a structured syndicate. We carry our name with pride and protect our members at all costs.</p>
             </div>
             <div class="card">
                 <h3>STRATEGIC SYNDICATE</h3>
@@ -174,7 +163,7 @@
 
     <section id="staff" class="section">
         <div class="section-header">
-            <h2>STAFF</h2>
+            <h2>High Staff</h2>
             <p>The leadership council of Al'Arabawy</p>
         </div>
         <div class="grid">
@@ -197,29 +186,11 @@
         </div>
     </section>
 
-    <section class="section">
-        <div class="section-header"><h2>HOW TO START</h2></div>
-        <div class="download-box">
-            <div>
-                <h3 style="margin:0; color:#fff;">GTA SA GAME</h3>
-                <p style="color:var(--text-muted); margin:5px 0 0 0; text-transform:none; font-style:normal;">Get the official game to start your journey.</p>
-            </div>
-            <a href="#" class="btn">DOWNLOAD</a>
-        </div>
-        <div class="download-box">
-            <div>
-                <h3 style="margin:0; color:#fff;">MTA LAUNCHER</h3>
-                <p style="color:var(--text-muted); margin:5px 0 0 0; text-transform:none; font-style:normal;">Download Multi Theft Auto for multiplayer play.</p>
-            </div>
-            <a href="#" class="btn">LAUNCHER</a>
-        </div>
-    </section>
-
     <footer>
         <h2 style="font-size:2rem; margin-bottom:10px; color:var(--accent-color);">AL'ARABAWI</h2>
         <p style="color:var(--text-muted); margin-bottom:40px; font-style:italic;">THE LEGACY CONTINUES</p>
         <div class="social-links">
-            <a href="#">DISCORD</a>
+            <a href="https://discord.gg/dV4Z3cwyqE" target="_blank">DISCORD</a>
             <a href="#">YOUTUBE</a>
             <a href="#">INSTAGRAM</a>
         </div>
