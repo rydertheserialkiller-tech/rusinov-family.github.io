@@ -3,22 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al'Arabawy Family | Wnash Time MTA</title>
+    <title>Al'Arabawy Family | Wnash Time Roleplay</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --neon-blue: #00d4ff;
             --dark-bg: #050a14;
-            --accent-blue: #005f73;
         }
 
         body {
             background-color: var(--dark-bg);
             color: #ffffff;
-            font-family: 'Orbitron', sans-serif; /* Futuristic font feel */
+            /* تطبيق الخط المائل والعريض على كل الموقع */
+            font-family: 'Exo 2', sans-serif;
+            font-style: italic;
+            font-weight: 900;
             margin: 0;
-            padding: 0;
-            overflow-x: hidden;
             text-align: center;
+            text-transform: uppercase; /* لجعل الحروف كبيرة مثل الصورة */
         }
 
         /* Hero Section */
@@ -31,117 +35,79 @@
             background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
                         url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=2070'); 
             background-size: cover;
-            background-position: center;
-            border-bottom: 2px solid var(--neon-blue);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            border-bottom: 3px solid var(--neon-blue);
         }
 
         h1 {
-            font-size: 5rem;
-            letter-spacing: 10px;
-            text-transform: uppercase;
+            font-size: 5.5rem;
             margin: 0;
-            color: #fff;
-            text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+            text-shadow: 4px 4px 0px var(--neon-blue); /* ظل حاد مثل الألعاب */
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            color: var(--neon-blue);
-            margin-top: 10px;
-        }
-
-        /* Sections */
-        .section {
-            padding: 100px 10%;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--neon-blue);
-            text-transform: uppercase;
-            margin-bottom: 40px;
-            text-shadow: 0 0 5px var(--neon-blue);
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #cbd5e0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        /* Leader Cards */
-        .leader-container {
+        /* بطاقات الميزات (الموجودة في الصورة) */
+        .features-container {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
+            gap: 20px;
+            padding: 50px;
+            flex-wrap: wrap;
         }
 
-        .leader-card {
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid var(--neon-blue);
-            padding: 30px;
+        .feature-card {
+            background: #0a0f1a;
+            border: 1px solid #1a202c;
+            border-radius: 20px;
+            padding: 40px 20px;
             width: 280px;
-            border-radius: 0px; /* Sharp edges for a tougher look */
-            transition: 0.5s;
-            position: relative;
-            overflow: hidden;
+            transition: 0.3s;
         }
 
-        .leader-card:hover {
-            background: rgba(0, 212, 255, 0.15);
-            box-shadow: 0 0 25px var(--neon-blue);
-            transform: translateY(-15px);
+        .feature-card:hover {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
         }
 
-        .leader-card h3 {
-            margin: 10px 0;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .leader-card p {
+        .feature-card i {
+            font-size: 40px;
             color: var(--neon-blue);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            font-weight: bold;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        /* Button Style */
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-desc {
+            font-size: 0.9rem;
+            color: #888;
+            font-style: normal; /* جعل الوصف غير مائل لسهولة القراءة لو أردت */
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
         .btn {
             margin-top: 30px;
             display: inline-block;
             padding: 15px 40px;
-            color: var(--neon-blue);
-            border: 2px solid var(--neon-blue);
-            text-decoration: none;
-            text-transform: uppercase;
-            font-weight: bold;
-            transition: 0.3s;
-            cursor: pointer;
-        }
-
-        .btn:hover {
             background: var(--neon-blue);
             color: #000;
-            box-shadow: 0 0 20px var(--neon-blue);
-        }
-
-        footer {
-            padding: 50px;
-            background: #02050a;
-            border-top: 1px solid #1a202c;
-            font-size: 0.8rem;
-            color: #718096;
-        }
-
-        .social-link {
-            color: var(--neon-blue);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
+            font-weight: 900;
+            clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%); /* زر مائل احترافي */
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <p style="color: var(--neon-blue); letter-spacing: 5px;">Wnash Time Server</p>
+        <h1>THE AL'ARABAWI</h1>
+        <p>Discover the strongest family in the server</p>
+    </section>
+
+    <div class="features-container">
+        <div class="feature-card">
+            <div class="feature-title">THE ARABAWI LEGACY</div>
