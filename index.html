@@ -55,7 +55,7 @@
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
             background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.95)), 
-                        url('https://cdn.discordapp.com/attachments/943225659336056842/1475497954336047104/mta-screen_2025-07-24_04-38-29.png?ex=699db40d&is=699c628d&hm=fb4e126869dd47b9c112e7e5bd9fd9cb47ef6718e6f66436eb120a4c0ee92775&animated=true') center/cover;
+                        url('https://cdn.discordapp.com/attachments/943225659336056842/1475497954336047104/mta-screen_2025-07-24_04-38-29.png') center/cover;
         }
         .hero p { color: var(--accent-color); letter-spacing: 3px; font-size: 1rem; margin-bottom: 10px; }
         .hero h1 { font-size: 5rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 30px var(--accent-glow); }
@@ -66,15 +66,50 @@
         .section-header h2 { font-size: 3rem; margin: 0; line-height: 1; color: var(--text-main); }
         .section-header p { color: var(--text-muted); margin-top: 10px; font-size: 1.1rem; }
 
-        /* --- Assets Section --- */
-        .tabs-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        /* --- Rules Section (Added Based on Images) --- */
+        .rules-warning {
+            background: rgba(155, 0, 255, 0.05);
+            border: 1px dashed var(--accent-color);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
             margin-bottom: 40px;
-            flex-wrap: wrap;
+            color: #ff4d4d;
+            font-weight: bold;
         }
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .rules-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 30px;
+            transition: 0.3s;
+        }
+        .rules-card:hover { border-color: var(--accent-color); }
+        .rules-card h3 {
+            color: var(--accent-color);
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-top: 0;
+        }
+        .rules-list { list-style: none; padding: 0; margin: 0; }
+        .rules-list li {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.4;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 10px;
+        }
+        .rules-list li b { color: var(--accent-color); }
 
+        /* --- Assets Section --- */
+        .tabs-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; flex-wrap: wrap; }
         .tab-btn {
             background: var(--btn-inactive);
             color: var(--text-muted);
@@ -86,7 +121,6 @@
             font-size: 0.9rem;
             font-weight: 700;
         }
-
         .tab-btn.active, .tab-btn:hover {
             background: var(--accent-color);
             color: #fff;
@@ -98,7 +132,6 @@
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 25px;
         }
-
         .asset-card {
             position: relative;
             background: var(--card-bg);
@@ -107,36 +140,18 @@
             border: 2px solid transparent;
             transition: all 0.4s ease;
         }
-
         .asset-card:hover {
             border-color: var(--accent-color);
             box-shadow: 0 0 25px var(--accent-glow);
             transform: translateY(-5px);
         }
-
-        .asset-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-        }
-
+        .asset-img { width: 100%; height: 220px; object-fit: cover; display: block; }
         .asset-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 15px;
+            position: absolute; bottom: 0; left: 0; width: 100%; padding: 15px;
             background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5) 80%, transparent);
-            color: #fff;
-            text-align: left;
+            color: #fff; text-align: left;
         }
-
-        .asset-info h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
+        .asset-info h3 { margin: 0; font-size: 1.1rem; font-weight: 700; }
 
         /* --- Story Section --- */
         .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
@@ -153,7 +168,6 @@
         .staff-rank { color: var(--accent-color); font-weight: 900; font-size: 0.8rem; }
 
         footer { text-align: center; padding: 60px 20px; background: #080808; border-top: 1px solid var(--border-color); }
-
         .btn { background-color: var(--accent-color); color: #fff; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 900; transition: 0.3s; display: inline-block; }
         .btn:hover { box-shadow: 0 0 25px var(--accent-glow); background: #fff; color: #000; }
 
@@ -173,6 +187,7 @@
             <a href="#">HOME</a>
             <a href="#about">LEGACY</a>
             <a href="#assets">ASSETS</a>
+            <a href="#rules">RULES</a>
             <a href="#staff">COUNCIL</a>
             <a href="https://discord.gg/xbg4BTKn4z" target="_blank">JOIN US</a>
         </div>
@@ -191,18 +206,12 @@
                     <p style="color:var(--accent-color); font-weight:bold;">CODE OF SILENCE</p>
                     <h2>BUILT ON<br><span style="color:var(--accent-color)">IRON & BLOOD</span></h2>
                 </div>
-                <p>
-                    The Rusinov name emerged from the cold industrial districts, where the only way to escape the grind was to own the machine. Ryder and Leon Rusinov understood early that power isn't given—it is seized through strategic dominance and unwavering loyalty.
-                </p>
-                <div class="story-highlight">
-                    "A Rusinov never asks for respect; we create circumstances where it is the only option left."
-                </div>
-                <p>
-                    From high-stakes logistics to urban control, the Rusinov family operates under a singular banner: Loyalty to the blood, death to the traitors. We dictate the pulse of the city.
-                </p>
+                <p>The Rusinov name emerged from the cold industrial districts, where the only way to escape the grind was to own the machine. Ryder and Leon Rusinov understood early that power isn't given—it is seized through strategic dominance and unwavering loyalty.</p>
+                <div class="story-highlight">"A Rusinov never asks for respect; we create circumstances where it is the only option left."</div>
+                <p>From high-stakes logistics to urban control, the Rusinov family operates under a singular banner: Loyalty to the blood, death to the traitors. We dictate the pulse of the city.</p>
             </div>
             <div class="story-image">
-                <img src="https://cdn.discordapp.com/attachments/1455575862643785739/1475681987250622555/content.png?ex=699e5f72&is=699d0df2&hm=4ec2074e4f008c07f56f658348d1e9e4414ddd82b444326c1c383ced049b2929&animated=true" alt="Rusinov Legacy">
+                <img src="https://cdn.discordapp.com/attachments/1455575862643785739/1475681987250622555/content.png" alt="Rusinov Legacy">
             </div>
         </div>
     </section>
@@ -212,7 +221,6 @@
             <h2>FAMILY ASSETS</h2>
             <p>Exclusive, Luxury, and Power</p>
         </div>
-
         <div class="tabs-container">
             <button class="tab-btn active" onclick="filterAssets('all', event)">VIEW ALL</button>
             <button class="tab-btn" onclick="filterAssets('cars', event)">VEHICLES</button>
@@ -223,62 +231,82 @@
             <button class="tab-btn" onclick="filterAssets('garages', event)">GARAGES</button>
             <button class="tab-btn" onclick="filterAssets('realestate', event)">PROPERTIES</button>
         </div>
-
         <div class="assets-grid" id="assetsGrid">
-            
             <div class="asset-card cars">
-                <img src="https://media.discordapp.net/attachments/943225659336056842/1475175816844542155/mta-screen_2026-02-22_14-32-52.png?ex=699dd98a&is=699c880a&hm=2e1edda7e4a7cf942499d54622435c171cfc591141d04044b4406b16c97fff8f&animated=true" class="asset-img" alt="Infernus">
-                <div class="asset-info">
-                    <h3>TEST | Audi RS8, By ' Rydèr .</h3>
-                </div>
+                <img src="https://media.discordapp.net/attachments/943225659336056842/1475175816844542155/mta-screen_2026-02-22_14-32-52.png" class="asset-img" alt="Audi RS8">
+                <div class="asset-info"><h3>Audi RS8 | By ' Rydèr .</h3></div>
             </div>
-
-            <div class="asset-card cars">
-                <img src="https://i.imgur.com/your-camry-image.jpg" class="asset-img" alt="Toyota Camry">
-                <div class="asset-info">
-                    <h3>Luxury Sedan | Toyota Camry</h3>
-                </div>
-            </div>
-
             <div class="asset-card hq">
                 <img src="https://i.ytimg.com/vi/MmsYkUqUaE4/maxresdefault.jpg" class="asset-img" alt="HQ">
-                <div class="asset-info">
-                    <h3>Operations Center | The Rusinov Estate</h3>
-                </div>
+                <div class="asset-info"><h3>Operations Center | The Rusinov Estate</h3></div>
             </div>
-
             <div class="asset-card planes">
                 <img src="https://vignette.wikia.nocookie.net/gtawiki/images/8/86/Luxor-GTAV-front.png" class="asset-img" alt="Plane">
-                <div class="asset-info">
-                    <h3>Private Jet | Luxor Deluxe</h3>
-                </div>
+                <div class="asset-info"><h3>Private Jet | Luxor Deluxe</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rules" class="section">
+        <div class="section-header">
+            <h2>قوانين العائلة</h2>
+            <p>لضمان بيئة منظمة ومحترمة للجميع</p>
+        </div>
+
+        <div class="rules-warning" dir="rtl">
+            *** يرجى قراءة القوانين بدقة! الانضمام للعائلة هو قبول ضمني لجميع هذه البنود. المخالفة تعرضك للعقوبة الفورية. ***
+        </div>
+
+        <div class="rules-grid" dir="rtl">
+            <div class="rules-card">
+                <h3>القوانين العامة</h3>
+                <ul class="rules-list">
+                    <li><b>1.</b> احترام الجميع واجب: يمنع السب والشتم والإهانة نهائياً.</li>
+                    <li><b>2.</b> عدم النشر: لا يسمح بنشر الروابط الضارة أو الإعلانات الخارجية.</li>
+                    <li><b>3.</b> عدم انتحال الشخصية: يمنع انتحال صفة أي عضو أو مسؤول.</li>
+                    <li><b>4.</b> محتوى مخل: يمنع نشر أي محتوى غير لائق أو إباحي.</li>
+                    <li><b>5.</b> راحة الآخرين: يمنع الإزعاج أو الاستفزاز داخل الرومات الصوتية.</li>
+                    <li><b>6.</b> الالتزام بالرومات: يرجى استخدام كل روم للغرض المخصص له.</li>
+                    <li><b>7.</b> المشاكل الشخصية: يمنع إقحام العائلة في أي نزاع شخصي خارجي.</li>
+                    <li><b>8.</b> طلب الرتب: يمنع طلب الرتب بشكل متكرر؛ الإدارة تمنحها للمستحقين.</li>
+                    <li><b>9.</b> مواضيع حساسة: يمنع النقاش في الأمور السياسية أو الدينية.</li>
+                </ul>
             </div>
 
+            <div class="rules-card">
+                <h3>القوانين الخاصة</h3>
+                <ul class="rules-list">
+                    <li><b>1. كن واعياً:</b> ثقافة التبليغ هامة لضبط أمان الخادم ومعاقبة المخالفين.</li>
+                    <li><b>2. كن واثقاً:</b> عند مواجهة أي مشكلة، توجه للإدارة مباشرة بشكوى رسمية.</li>
+                    <li><b>3. كن حريصاً:</b> يمنع التخريب أو الاستهتار أثناء الإيفنتات الرسمية.</li>
+                    <li><b>4. كن نزيهاً:</b> يمنع النصب أو الاحتيال على أعضاء العائلة تحت أي ظرف.</li>
+                    <li><b>5. كن على علم:</b> يجب استيفاء شروط الانضمام كاملة قبل تقديم الطلب.</li>
+                    <li><b>6. كن ملتزماً:</b> تغيير الاسم لاسم العائلة ضروري؛ مخالفته تعرضك للطرد.</li>
+                    <li><b>7. كن نشطاً:</b> الغياب عن الخادم لأكثر من أسبوعين بدون عذر يؤدي للطرد.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
     <section id="staff" class="section">
-        <div class="section-header">
-            <h2>THE HIGH COUNCIL</h2>
-        </div>
-        
+        <div class="section-header"><h2>THE HIGH COUNCIL</h2></div>
         <div class="staff-grid">
             <div class="staff-member">
-                <img src="ryder.jpg" alt="Ryder Rusinov" class="staff-img">
+                <img src="ryder.jpg" alt="Ryder" class="staff-img">
                 <div class="staff-info-box">
                     <div class="staff-rank">CEO & FOUNDER</div>
                     <div class="staff-name">RYDER RUSINOV</div>
                 </div>
             </div>
             <div class="staff-member">
-                <img src="lleon.jpg"  alt="Leon Rusinov" class="staff-img">
+                <img src="lleon.jpg" alt="Leon" class="staff-img">
                 <div class="staff-info-box">
                     <div class="staff-rank">CEO & FOUNDER</div>
                     <div class="staff-name">LEON RUSINOV</div>
                 </div>
             </div>
-          <div class="staff-member">
-                <img src="Leon.jpg"  alt="Leon Rusinov" class="staff-img">
+            <div class="staff-member">
+                <img src="Leon.jpg" alt="Unknown" class="staff-img">
                 <div class="staff-info-box">
                     <div class="staff-rank">OVERSEER</div>
                     <div class="staff-name">UNKNOWN.</div>
@@ -296,16 +324,10 @@
         function filterAssets(category, event) {
             const cards = document.querySelectorAll('.asset-card');
             const btns = document.querySelectorAll('.tab-btn');
-            
             btns.forEach(btn => btn.classList.remove('active'));
             event.currentTarget.classList.add('active');
-
             cards.forEach(card => {
-                if (category === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = card.classList.contains(category) ? 'block' : 'none';
-                }
+                card.style.display = (category === 'all' || card.classList.contains(category)) ? 'block' : 'none';
             });
         }
     </script>
