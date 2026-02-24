@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rusinov Syndicate | WnashTime</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800;1,900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,800;1,900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --bg-color: #02050a;
-            --card-bg: #050a14;
-            --border-color: #1a202c;
-            --accent-color: #9b00ff; /* Sharper Blue for Rusinov */
-            --accent-glow: rgba(155, 0, 255, 0.4);
+            --bg-color: #0a0a0a;
+            --card-bg: #121212;
+            --border-color: #1f1f1f;
+            --accent-color: #9b00ff; 
+            --accent-glow: rgba(155, 0, 255, 0.6);
             --text-main: #ffffff;
             --text-muted: #8892b0;
+            --btn-inactive: #1f1f1f;
         }
 
         * { box-sizing: border-box; scroll-behavior: smooth; }
@@ -27,24 +28,25 @@
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
             line-height: 1.6;
+            text-align: left;
         }
 
         h1, h2, h3, .nav-links a, .title-font, .tab-btn {
             font-family: 'Exo 2', sans-serif;
-            font-style: italic;
+            font-weight: 800;
             text-transform: uppercase;
         }
 
         /* --- Navigation --- */
         nav {
             display: flex; justify-content: space-between; align-items: center;
-            padding: 20px 50px; background: rgba(2, 5, 10, 0.9);
+            padding: 20px 50px; background: rgba(10, 10, 10, 0.9);
             border-bottom: 1px solid var(--border-color);
             position: fixed; width: 100%; top: 0; z-index: 1000;
             backdrop-filter: blur(10px);
         }
         .logo { font-size: 1.5rem; font-weight: 900; letter-spacing: 2px; color: var(--accent-color); text-shadow: 0 0 10px var(--accent-glow); }
-        .nav-links a { color: var(--text-muted); text-decoration: none; margin: 0 15px; font-size: 0.85rem; font-weight: 800; transition: 0.3s; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin: 0 15px; font-size: 0.9rem; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent-color); text-shadow: 0 0 5px var(--accent-glow); }
 
         /* --- Hero Section --- */
@@ -52,74 +54,114 @@
             height: 100vh;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             text-align: center;
-            background: linear-gradient(rgba(2, 5, 10, 0.7), rgba(2, 5, 10, 0.95)), 
-                        url('https://cdn.discordapp.com/attachments/1455575862643785739/1475695226378256454/621683.png?ex=699e6bc7&is=699d1a47&hm=448ff8f3465d0d960d9a3c2dde6b2f042de41be8985fee5e618969092983c2d2&animated=true') center/cover;
+            background: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.95)), 
+                        url('https://cdn.discordapp.com/attachments/943225659336056842/1475497954336047104/mta-screen_2025-07-24_04-38-29.png') center/cover;
         }
-        .hero p { color: var(--accent-color); letter-spacing: 5px; font-size: 0.9rem; margin-bottom: 10px; font-weight: bold; }
-        .hero h1 { font-size: 7rem; margin: 0; letter-spacing: 8px; text-shadow: 0 0 40px var(--accent-glow); }
+        .hero p { color: var(--accent-color); letter-spacing: 3px; font-size: 1rem; margin-bottom: 10px; }
+        .hero h1 { font-size: 5rem; margin: 0; letter-spacing: 5px; text-shadow: 0 0 30px var(--accent-glow); }
 
         /* --- Sections --- */
-        .section { padding: 100px 10%; border-bottom: 1px solid var(--border-color); }
-        .section-header { margin-bottom: 50px; }
-        .section-header h2 { font-size: 3.5rem; margin: 0; line-height: 1; }
-
-        /* --- Story / Legacy Section --- */
-        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .story-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 25px; text-align: justify; }
-        .story-highlight { 
-            border-left: 4px solid var(--accent-color); padding: 10px 25px; 
-            font-style: italic; color: #fff; margin: 30px 0; background: rgba(155, 0, 255, 0.05);
-        }
-        .story-image img { width: 100%; border-radius: 4px; border: 1px solid var(--border-color); filter: brightness(0.6) contrast(1.2); }
+        .section { padding: 80px 5%; border-bottom: 1px solid var(--border-color); }
+        .section-header { margin-bottom: 40px; text-align: center; }
+        .section-header h2 { font-size: 3rem; margin: 0; line-height: 1; color: var(--text-main); }
+        .section-header p { color: var(--text-muted); margin-top: 10px; font-size: 1.1rem; }
 
         /* --- Assets Section --- */
-        .tabs-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
-        .tab-btn {
-            background: #0a0e17; border: 1px solid var(--border-color); color: #fff;
-            padding: 12px 25px; border-radius: 0px; cursor: pointer; transition: 0.3s; font-size: 0.8rem;
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
         }
-        .tab-btn.active { background: var(--accent-color); border-color: var(--accent-color); box-shadow: 0 0 20px var(--accent-glow); }
+
+        .tab-btn {
+            background: var(--btn-inactive);
+            color: var(--text-muted);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
         
-        .assets-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
-        .asset-card { background: var(--card-bg); border-radius: 4px; overflow: hidden; border: 1px solid var(--border-color); transition: 0.4s; }
-        .asset-card:hover { transform: translateY(-10px); border-color: var(--accent-color); box-shadow: 0 10px 30px rgba(155,0,255,0.2); }
-        .asset-img { width: 100%; height: 200px; object-fit: cover; filter: grayscale(30%); transition: 0.4s; }
-        .asset-card:hover .asset-img { filter: grayscale(0%); }
-        .asset-info { padding: 20px; }
-        .asset-info h3 { margin: 0; font-size: 1.3rem; color: #fff; }
-        .asset-info p { color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
+        .assets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .asset-card {
+            position: relative;
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: all 0.4s ease;
+        }
+
+        .asset-card:hover {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-5px);
+        }
+
+        .asset-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .asset-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.5) 80%, transparent);
+            color: #fff;
+            text-align: left;
+        }
+
+        .asset-info h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* --- Story Section --- */
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .story-text p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 20px; text-align: justify; }
+        .story-highlight { border-left: 4px solid var(--accent-color); padding: 10px 20px; background: rgba(155, 0, 255, 0.05); color: #fff; font-style: italic; margin-bottom: 20px; }
+        .story-image img { width: 100%; border-radius: 8px; filter: grayscale(20%); }
 
         /* --- Staff Section --- */
-        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .staff-member {
-            position: relative; background-color: #080b12; border-radius: 4px; overflow: hidden;
-            height: 480px; display: flex; flex-direction: column; justify-content: flex-end;
-            border: 1px solid var(--border-color); transition: 0.4s;
-        }
-        .staff-img {
-            position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
-            min-width: 100%; height: 100%; object-fit: cover; z-index: 1;
-            filter: grayscale(100%) brightness(0.4); transition: 0.5s;
-        }
-        .staff-member:hover .staff-img { filter: grayscale(20%) brightness(0.8); transform: translateX(-50%) scale(1.05); }
-        .staff-info-box { position: relative; z-index: 2; padding: 30px 20px; background: linear-gradient(transparent, #02050a 95%); }
-        .staff-rank { color: var(--accent-color); font-weight: 900; font-size: 0.8rem; letter-spacing: 2px; }
-        .staff-name { color: #fff; font-size: 1.8rem; font-weight: 900; margin: 5px 0 0 0; }
+        .staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .staff-member { position: relative; height: 400px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+        .staff-img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); transition: 0.4s; }
+        .staff-member:hover .staff-img { filter: grayscale(0%); transform: scale(1.05); }
+        .staff-info-box { position: absolute; bottom: 0; width: 100%; padding: 20px; background: linear-gradient(transparent, #02050a); z-index: 2; }
+        .staff-rank { color: var(--accent-color); font-weight: 900; font-size: 0.8rem; }
 
-        /* --- Footer --- */
-        footer { text-align: center; padding: 80px 20px; background: #010307; border-top: 1px solid var(--border-color); }
+        footer { text-align: center; padding: 60px 20px; background: #080808; border-top: 1px solid var(--border-color); }
 
-        .btn { 
-            background-color: var(--accent-color); color: #fff; padding: 15px 40px; 
-            text-decoration: none; font-weight: 900; transition: 0.3s; 
-            display: inline-block; cursor: pointer; border: none; letter-spacing: 2px;
-        }
-        .btn:hover { background-color: #fff; color: #000; box-shadow: 0 0 30px #fff; }
+        .btn { background-color: var(--accent-color); color: #fff; padding: 15px 40px; text-decoration: none; border-radius: 50px; font-weight: 900; transition: 0.3s; display: inline-block; }
+        .btn:hover { box-shadow: 0 0 25px var(--accent-glow); background: #fff; color: #000; }
 
         @media (max-width: 900px) {
-            .hero h1 { font-size: 3.5rem; }
+            .hero h1 { font-size: 3rem; }
             .story-grid { grid-template-columns: 1fr; }
             nav { padding: 20px; }
+            .assets-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -132,34 +174,31 @@
             <a href="#about">LEGACY</a>
             <a href="#assets">ASSETS</a>
             <a href="#staff">COUNCIL</a>
-            <a href="https://discord.gg/xbg4BTKn4z" target="_blank">JOIN</a>
+            <a href="https://discord.gg/xbg4BTKn4z" target="_blank">JOIN US</a>
         </div>
     </nav>
 
     <section class="hero">
         <p>ESTABLISHED 2026 • THE RUSINOV ERA</p>
         <h1>RUSINOV</h1>
-        <a href="https://discord.gg/xbg4BTKn4z" target="_blank" class="btn" style="margin-top: 25px;">JOIN RUSINOV</a>
+        <a href="https://discord.gg/xbg4BTKn4z" target="_blank" class="btn" style="margin-top: 25px;">JOIN THE SYNDICATE</a>
     </section>
 
     <section id="about" class="section">
         <div class="story-grid">
             <div class="story-text">
-                <div class="section-header">
-                    <p style="color:var(--accent-color); font-weight:bold; letter-spacing:3px;">THE CODE OF SILENCE</p>
+                <div class="section-header" style="text-align: left;">
+                    <p style="color:var(--accent-color); font-weight:bold;">CODE OF SILENCE</p>
                     <h2>BUILT ON<br><span style="color:var(--accent-color)">IRON & BLOOD</span></h2>
                 </div>
                 <p>
-                    The Rusinov name emerged from the cold industrial districts, where the only way to escape the grind was to own the machine. Ryder Rusinov understood early that power isn't given—it is seized through strategic dominance and unwavering loyalty.
+                    The Rusinov name emerged from the cold industrial districts, where the only way to escape the grind was to own the machine. Ryder and Leon Rusinov understood early that power isn't given—it is seized through strategic dominance and unwavering loyalty.
                 </p>
                 <div class="story-highlight">
                     "A Rusinov never asks for respect; we create circumstances where it is the only option left."
                 </div>
                 <p>
-                    What started as a shadow operation in the heart of Wnash Time has evolved into a disciplined syndicate. From high-stakes logistics to urban control, the Rusinov family operates under a singular banner: Loyalty to the blood, death to the traitors.
-                </p>
-                <p>
-                    Today, the Council oversees a sprawling network of influence. We don't just participate in the city's economy—we dictate its pulse.
+                    From high-stakes logistics to urban control, the Rusinov family operates under a singular banner: Loyalty to the blood, death to the traitors. We dictate the pulse of the city.
                 </p>
             </div>
             <div class="story-image">
@@ -169,16 +208,20 @@
     </section>
 
     <section id="assets" class="section">
-        <div class="section-header" style="text-align: center;">
-            <p style="color:var(--accent-color); font-weight:bold; letter-spacing:3px;">OUR PORTFOLIO</p>
-            <h2>FAMILY <span style="color:var(--accent-color)">ASSETS</span></h2>
+        <div class="section-header">
+            <h2>FAMILY ASSETS</h2>
+            <p>Exclusive, Luxury, and Power</p>
         </div>
 
         <div class="tabs-container">
             <button class="tab-btn active" onclick="filterAssets('all', event)">VIEW ALL</button>
-            <button class="tab-btn" onclick="filterAssets('cars', event)">THE FLEET</button>
-            <button class="tab-btn" onclick="filterAssets('hq', event)">SAFEHOUSES</button>
-            <button class="tab-btn" onclick="filterAssets('business', event)">BUSINESSES</button>
+            <button class="tab-btn" onclick="filterAssets('cars', event)">VEHICLES</button>
+            <button class="tab-btn" onclick="filterAssets('trucks', event)">TRUCKS</button>
+            <button class="tab-btn" onclick="filterAssets('bikes', event)">BIKES</button>
+            <button class="tab-btn" onclick="filterAssets('planes', event)">AIRCRAFT</button>
+            <button class="tab-btn" onclick="filterAssets('hq', event)">HQ / BASES</button>
+            <button class="tab-btn" onclick="filterAssets('garages', event)">GARAGES</button>
+            <button class="tab-btn" onclick="filterAssets('realestate', event)">PROPERTIES</button>
         </div>
 
         <div class="assets-grid" id="assetsGrid">
@@ -186,71 +229,60 @@
             <div class="asset-card cars">
                 <img src="https://gta-objects.com/images/vehicles/Infernus.jpg" class="asset-img" alt="Infernus">
                 <div class="asset-info">
-                    <h3>Infernus Custom</h3>
-                    <p>Category: High-Speed Pursuit</p>
+                    <h3>Classic Sport | Infernus Custom</h3>
                 </div>
             </div>
 
             <div class="asset-card cars">
-                <img src="https://gta-objects.com/images/vehicles/Sultan.jpg" class="asset-img" alt="Sultan">
+                <img src="https://i.imgur.com/your-camry-image.jpg" class="asset-img" alt="Toyota Camry">
                 <div class="asset-info">
-                    <h3>Sultan RS</h3>
-                    <p>Category: Convoy Escort</p>
+                    <h3>Luxury Sedan | Toyota Camry</h3>
                 </div>
             </div>
 
             <div class="asset-card hq">
                 <img src="https://i.ytimg.com/vi/MmsYkUqUaE4/maxresdefault.jpg" class="asset-img" alt="HQ">
                 <div class="asset-info">
-                    <h3>The Rusinov Estate</h3>
-                    <p>Category: Main Headquarters</p>
+                    <h3>Operations Center | The Rusinov Estate</h3>
                 </div>
             </div>
 
-            <div class="asset-card business">
-                <img src="https://vignette.wikia.nocookie.net/gtawiki/images/4/4b/FourDragonsCasino-GTASA.jpg/revision/latest?cb=20091125164101" class="asset-img" alt="Casino">
+            <div class="asset-card planes">
+                <img src="https://vignette.wikia.nocookie.net/gtawiki/images/8/86/Luxor-GTAV-front.png" class="asset-img" alt="Plane">
                 <div class="asset-info">
-                    <h3>The Caligula's Front</h3>
-                    <p>Category: Money Laundering</p>
+                    <h3>Private Jet | Luxor Deluxe</h3>
                 </div>
             </div>
 
         </div>
     </section>
+
     <section id="staff" class="section">
         <div class="section-header">
-            <p style="color:var(--accent-color); font-weight:bold;">THE HIGH COUNCIL</p>
-            <h2>LEADERSHIP</h2>
+            <h2>THE HIGH COUNCIL</h2>
         </div>
         
         <div class="staff-grid">
             <div class="staff-member">
                 <img src="ryder.jpg" alt="Ryder Rusinov" class="staff-img">
                 <div class="staff-info-box">
-                    <div class="staff-rank">CEO & FOUNDER</div>
+                    <div class="staff-rank">THE PATRIARCH</div>
                     <div class="staff-name">RYDER RUSINOV</div>
                 </div>
             </div>
             <div class="staff-member">
                 <img src="Leon.jpg"  alt="Leon Rusinov" class="staff-img">
                 <div class="staff-info-box">
-                    <div class="staff-rank">CEO & FOUNDER</div>
+                    <div class="staff-rank">THE UNDERBOSS</div>
                     <div class="staff-name">LEON RUSINOV</div>
-                </div>
-            </div>
-            <div class="staff-member">
-                <img src="https://via.placeholder.com/400x600/080b12/333?text=+" class="staff-img">
-                <div class="staff-info-box">
-                    <div class="staff-rank">OVERSEER</div>
-                    <div class="staff-name">VACANT</div>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <h2 style="color:var(--accent-color); font-style: italic;">RUSINOV</h2>
-        <p style="color:var(--text-muted); letter-spacing: 5px;">STRENGTH • SILENCE • SUCCESSION</p>
+        <h2 style="color:var(--accent-color);">RUSINOV</h2>
+        <p style="color:var(--text-muted); letter-spacing: 2px;">STRENGTH • SILENCE • SUCCESSION</p>
     </footer>
 
     <script>
@@ -258,12 +290,9 @@
             const cards = document.querySelectorAll('.asset-card');
             const btns = document.querySelectorAll('.tab-btn');
             
-            // إزالة اللون من كل الأزرار
             btns.forEach(btn => btn.classList.remove('active'));
-            // تلوين الزر المضغوط
             event.currentTarget.classList.add('active');
 
-            // إظهار وإخفاء الكروت بناءً على الفئة
             cards.forEach(card => {
                 if (category === 'all') {
                     card.style.display = 'block';
